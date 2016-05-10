@@ -1,0 +1,435 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"log",
+				"logged_in"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/hank/code/TODO.txt",
+			"settings":
+			{
+				"buffer_size": 555,
+				"line_ending": "Unix",
+				"name": "TODO.txt"
+			}
+		},
+		{
+			"file": "punchcard.py",
+			"settings":
+			{
+				"buffer_size": 2990,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/show_entries.html",
+			"settings":
+			{
+				"buffer_size": 1125,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "static/style.css",
+			"settings":
+			{
+				"buffer_size": 957,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "templates/layout.html",
+			"settings":
+			{
+				"buffer_size": 925,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "schema.sql",
+			"settings":
+			{
+				"buffer_size": 132,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/hank/code/knowlog.txt",
+			"settings":
+			{
+				"buffer_size": 1475,
+				"line_ending": "Unix",
+				"name": "Learning JS"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"tim",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"sy py",
+				"Set Syntax: Python"
+			],
+			[
+				"ssh",
+				"Set Syntax: HTML"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/hank/code/flask/punch-card/punch.sublime-project",
+		"/home/hank/Documents/LA to PDX",
+		"/home/hank/code/flask/punch-card/.git/MERGE_MSG",
+		"/home/hank/code/flask/tagger/tagger.py",
+		"/home/hank/code/flask/tagger/templates/layout.html",
+		"/home/hank/code/flask/tagger/templates/show_entries.html",
+		"/home/hank/code/flask/tagger/templates/login.html",
+		"/home/hank/code/flask/tagger/static/style.css",
+		"/home/hank/code/html/portfolio/index.html",
+		"/home/hank/code/html/portfolio/TTT.html",
+		"/home/hank/code/html/portfolio/2048.html",
+		"/home/hank/code/py/google-python-exercises/basic/wordcount.py",
+		"/home/hank/Documents/TWBC/[Bidness Plan Shiz].txt",
+		"/etc/apt/sources.lst",
+		"/home/hank/Desktop/sources.list",
+		"/home/hank/sound-rig/portmidi/pm_python/setup.py",
+		"/home/hank/.profile",
+		"/home/hank/radio/exam notes.txt",
+		"/home/hank/Documents/Leisure Angeles.txt",
+		"/home/hank/Documents/TWBC/doo job description.txt",
+		"/home/hank/.bash_profile",
+		"/home/hank/.bash_rc",
+		"/home/hank/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/hank/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/hank/.config/sublime-text-2/Packages/User/Plain text.sublime-settings",
+		"/home/hank/code/html/bootstrap/bootstrap-prestructure.html",
+		"/home/hank/code/html/portfolio/css/styles.css",
+		"/home/hank/code/html/portfolio/toplist/index.html",
+		"/home/hank/code/html/portfolio/css/bootstrap.css",
+		"/home/hank/code/html/portfolio/toplist/style.css",
+		"/home/hank/code/html/portfolio/framework/css/main.css",
+		"/home/hank/code/html/portfolio/framework/test.html"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"in_time",
+			"Appify",
+			".",
+			"	        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>",
+			"modal",
+			"col-md-6"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"	        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>",
+			"col-md-4 col-md-offset-2"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/hank/code/TODO.txt",
+					"settings":
+					{
+						"buffer_size": 555,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								477,
+								477
+							]
+						],
+						"settings":
+						{
+							"auto_name": "TODO.txt",
+							"syntax": "Packages/Java/Java.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "punchcard.py",
+					"settings":
+					{
+						"buffer_size": 2990,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2847,
+								2847
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 575.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "templates/show_entries.html",
+					"settings":
+					{
+						"buffer_size": 1125,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								879,
+								879
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "static/style.css",
+					"settings":
+					{
+						"buffer_size": 957,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								355,
+								355
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "templates/layout.html",
+					"settings":
+					{
+						"buffer_size": 925,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								404,
+								404
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "schema.sql",
+					"settings":
+					{
+						"buffer_size": 132,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								129,
+								129
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SQL/SQL.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/hank/code/knowlog.txt",
+					"settings":
+					{
+						"buffer_size": 1475,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1475,
+								1475
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Learning JS",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 102.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
