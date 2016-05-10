@@ -1,0 +1,18 @@
+body            { font-family: 'Fira+Mono:400,700', monospace; background: #101018; color: green;}
+a    			{ color: #BB1616; }
+h1, h2          { color: #1D1; }
+h1, h2          { font-family: 'VT323', serif; margin: 0; }
+h1              { border-bottom: 2px solid #2A2; }
+h2              { font-size: 1.2em; }
+
+.page           { margin: 2em auto; width: 50em; border: 5px solid #2A2;
+                  padding: 0.8em; background: #202030; }
+.entries        { list-style: none; margin: 0; padding: 0; }
+.entries li     { margin: 0.8em 1.2em; }
+.entries li h2  { margin-left: -1em; }
+.add-entry      { font-size: 0.9em; border-bottom: 1px solid #2A2; }
+.add-entry dl   { font-weight: bold; }
+.metanav        { text-align: right; font-size: 0.8em; padding: 0.3em;
+                  margin-bottom: 1em; background: #303050; }
+.flash          { background: #050520; padding: 0.5em; }
+.error          { background: #050520; padding: 0.5em; border: 1px solid red; }

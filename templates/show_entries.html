@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block body %}
+	{% if session.logged_in %}
+	<script>
+		$(function() {
+			$("#inTimeNow").click(function() {
+				$('#inTimeTarget').val(Math.floor($.now()/1000));
+			})
+		});
+		$(function() {
+			$("#outTimeNow").click(function() {
+				$('#outTimeTarget').val(Math.floor($.now()/1000));
+			})
+		});
+	</script>
+		<form action="  {{ url_for('post_entry') }}" method=post class=add-entry>
+			<dl>
+				<dt>Time In:
+				<dd><input type=text size=15 name=inTime id=inTimeTarget><button type=button id=inTimeNow>Now</button>
+				<dt>Time Out:
+				<dd><input type=text size=15 name=outTime id=outTimeTarget><button type=button id=outTimeNow>Now</button>
+				<dt>Description of work:
+				<dd><textarea name=desc rows=5 cols=40></textarea>
+				<dd><input type=submit value=Punch>
+			</dl>
+		</form>
+	{% endif %}
+	<h2> Total Hours Worked : {{ total_time }} </h2>
+	<ul class=entries>
+		{% for entry in entries %}
+			<li><h2>{{ entry.in_time }} to {{ entry.out_time }}, {{ entry.elapsed }} hours </h2> {{ entry.desc|safe }}
+		{% else %}
+			<li><em>Get to work, lazy!</em>
+		{% endfor %}
+	</ul>
+{% endblock %}
+

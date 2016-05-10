@@ -1,0 +1,31 @@
+<!doctype html>
+
+<head>
+<title>Coder Punch Card</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href='https://fonts.googleapis.com/css?family=VT323|Fira+Mono:400,700' rel='stylesheet' type='text/css'>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<script src="/static/external/jquery/jquery.js"></script>
+<script src="/static/jquery-ui.js"></script>
+<link href="{{ url_for('static', filename='jquery-ui.css') }}" rel=stylesheet>
+</head>
+
+<body>
+	<div class=page>
+		<h1>Coder Punch Card</h1>
+		<div class=metanav>
+			{% if not session.logged_in %}
+				<a href="{{ url_for('login') }}">AUTHENTICATE</a>
+			{% else %}
+				<a href="{{ url_for('logout') }}">SIGN OUT</a>
+			{% endif %}
+		</div>
+		{% for message in get_flashed_messages() %}
+			<div class=flash>:> {{  message  }}</div>
+		{% endfor %}
+		{% block body %}{% endblock%}
+	</div>
+</body>
+
+
