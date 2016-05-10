@@ -7,7 +7,7 @@ from decimal import *
 from time import strftime, localtime
 
 #configuration
-DATABASE = '/tmp/punch-card.db'
+DATABASE = '/home/hank/db/punch-card.db'
 DEBUG = True
 SECRET_KEY = 'one_tagger'
 USERNAME = 'lance'
@@ -56,10 +56,14 @@ def show_entries():
 def post_entry():
 	if not session.get('logged_in'): # check if the logged_in key is present in the session
 		abort(401)
-	g.db.execute('insert into entries (in_time, out_time, desc) values (?, ?, ?)', [request.form['inTime'], request.form['outTime'], request.form['desc']])
-	g.db.commit()
-	flash('DATABASE TRANSMISSION COMMIT : SUCCESS')
-	return redirect(url_for('show_entries'))
+	if request.form['inTime'] and request.form['outTime']:
+		g.db.execute('insert into entries (in_time, out_time, desc) values (?, ?, ?)', [request.form['inTime'], request.form['outTime'], request.form['desc']])
+		g.db.commit()
+		flash('DATABASE TRANSMISSION COMMIT : SUCCESS')
+		return redirect(url_for('show_entries'))
+	else:
+		flash ('MISSING DATA DISALLOWED - TRY AGAIN.')
+		return redirect(url_for('show_entries'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
