@@ -1,5 +1,9 @@
 body            { font-family: 'Fira+Mono:400,700', monospace; background: #101018; color: green;}
 a    			{ color: #BB1616; }
+.tag-link    	{ color: green; text-decoration: none; border-bottom: green 1px dotted;}
+.tag-link:hover { color: #00DD00; }
+.date-link    	{ color: #1d1; text-decoration: none;}
+.date-link:hover { border-bottom: green 1px dotted;}
 h1, h2          { color: #1D1; }
 h1, h2          { font-family: 'VT323', serif; margin: 0; }
 h1              { border-bottom: 2px solid #2A2; }

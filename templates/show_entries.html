@@ -25,10 +25,21 @@
 			</dl>
 		</form>
 	{% endif %}
-	<h2> Total Hours Worked : {{ total_time }} </h2>
+	<h2> Total Hours Worked
+	{% if search_tag %}
+		on {{ search_tag }}
+	{% endif %}
+	{% if month %}
+		in {{ month }} {{ year }}
+	{% endif %}
+	 : {{ total_time }} 
+	{% if search_tag or month %}
+		<a href="{{ url_for('show_all_entries') }}">Show All</a>
+	{% endif %}
+	</h2>
 	<ul class=entries>
 		{% for entry in entries %}
-			<li><h2>{{ entry.in_time }} to {{ entry.out_time }}, {{ entry.elapsed }} hours </h2> {{ entry.desc|safe }}
+			<li><h2>{{ entry.in_time|safe }} to {{ entry.out_time|safe }}, {{ entry.elapsed }} hours </h2> {{ entry.desc|safe }}
 		{% else %}
 			<li><em>Get to work, lazy!</em>
 		{% endfor %}
