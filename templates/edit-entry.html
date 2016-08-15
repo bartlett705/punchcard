@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block body %}
+	{% if session.logged_in %}
+	<script>
+		$(function() {
+			$("#inTimeNow").click(function() {
+				$('#inTimeTarget').val(Math.floor($.now()/1000));
+			})
+		});
+		$(function() {
+			$("#outTimeNow").click(function() {
+				$('#outTimeTarget').val(Math.floor($.now()/1000));
+			})
+		});
+	</script>
+		<form action="  {{ url_for('edit_entry', id=entry.id)}}" method=post class=add-entry>
+			<dl>
+				<dt>Time In:
+				<dd><input type=text size=15 name=inTime id=inTimeTarget value={{ entry.in_time_epoch }}><button type=button id=inTimeNow>Now</button>
+				<dt>Time Out:
+				<dd><input type=text size=15 name=outTime id=outTimeTarget value={{ entry.out_time_epoch }} ><button type=button id=outTimeNow>Now</button>
+				<dt>Description of work:
+				<dd><textarea name=desc rows=5 cols=40>{{ entry.desc }}</textarea>
+				<dd><input type=submit value=Punch>
+			</dl>
+		</form>
+	{% endif %}
+	<h2> Total Hours Worked
+	 : {{ total_time }} 
+		<a href="{{ url_for('show_all_entries') }}">Cancel Edit</a>
+	</h2>
+	<ul class=entries>
+			<li><h2>{{ entry.in_time|safe }} to {{ entry.out_time|safe }}, {{ entry.elapsed }} hours </h2> <br> {{ entry.desc|safe }}
+	</ul>
+	<form action="{{url_for('delete_entry', id=entry.id)}}" method=post><input type=submit value=DELETE></form>
+{% endblock %}
+

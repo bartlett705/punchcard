@@ -13,7 +13,7 @@
 			})
 		});
 	</script>
-		<form action="  {{ url_for('post_entry') }}" method=post class=add-entry>
+		<form action="{{ url_for('post_entry') }}" method=post class=add-entry>
 			<dl>
 				<dt>Time In:
 				<dd><input type=text size=15 name=inTime id=inTimeTarget><button type=button id=inTimeNow>Now</button>
@@ -39,7 +39,7 @@
 	</h2>
 	<ul class=entries>
 		{% for entry in entries %}
-			<li><h2>{{ entry.in_time|safe }} to {{ entry.out_time|safe }}, {{ entry.elapsed }} hours </h2> {{ entry.desc|safe }}
+			<li><h2>{{ entry.in_time|safe }} to {{ entry.out_time|safe }}, {{ entry.elapsed }} hours </h2><small><a href="/pc/edit/{{ entry.id }}">edit</a></small><br> {{ entry.desc|safe }}
 		{% else %}
 			<li><em>Get to work, lazy!</em>
 		{% endfor %}

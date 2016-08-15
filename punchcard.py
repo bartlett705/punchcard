@@ -67,10 +67,10 @@ def teardown_request(exception):
 @application.route('/')
 def show_all_entries():
     getcontext().prec = 2  # set precision for decimal representation of hours worked.
-    cur = g.db.execute('select in_time, out_time, desc from entries order by in_time asc')  # sort by ascending in time
+    cur = g.db.execute('select in_time, out_time, desc, id from entries order by in_time asc')  # sort by ascending in time
     entries = [dict(in_time=strftime("%a, %d %b %Y %H:%M:%S", localtime(rows[0])),
                     out_time=strftime("%a, %d %b %Y %H:%M:%S", localtime(rows[1])),
-                    elapsed=Decimal((rows[1] - rows[0]) / Decimal(3600)), desc=rows[2]) for rows in
+                    elapsed=Decimal((rows[1] - rows[0]) / Decimal(3600)), desc=rows[2], id=rows[3]) for rows in
                cur.fetchall()]
     # list comprehension creating a list of dictionaries, each containing one of the tuples
     # returned by the cursor fetch (data in tuples is in the same order as the select query)
@@ -86,11 +86,11 @@ def show_all_entries():
 @application.route('/tags/<search_tag>')
 def show_tagged_entries(search_tag):
     getcontext().prec = 2  # set precision for decimal representation of hours worked.
-    cur = g.db.execute('select in_time, out_time, desc from entries order by in_time asc')  # sort by ascending in time
+    cur = g.db.execute('select in_time, out_time, desc, id from entries order by in_time asc')  # sort by ascending in time
     all_entries = [dict(in_time=strftime("%a, %d %b %Y %H:%M:%S", localtime(rows[0])),
                         out_time=strftime("%a, %d %b %Y %H:%M:%S", localtime(rows[1])),
-                        elapsed=Decimal((rows[1] - rows[0]) / Decimal(3600)), desc=rows[2]) for rows in cur.fetchall()]
-    # delete all the entries that don't contain the desired tag.
+                        elapsed=Decimal((rows[1] - rows[0]) / Decimal(3600)), desc=rows[2], id=rows[3]) for rows in cur.fetchall()]
+    # assembly entires that contain the desired tag
     tagged_entries = []
     for entry in all_entries:
         found_tags = re.findall('\[(\w+)\]', entry['desc'])
@@ -108,11 +108,11 @@ def show_tagged_entries(search_tag):
 @application.route('/<year>/<month>')
 def show_month_entries(year, month):
     getcontext().prec = 2  # set precision for decimal representation of hours worked.
-    cur = g.db.execute('select in_time, out_time, desc from entries order by in_time asc')  # sort by ascending in time
+    cur = g.db.execute('select in_time, out_time, desc, id from entries order by in_time asc')  # sort by ascending in time
     all_entries = [dict(in_time=strftime("%a, %d %b %Y %H:%M:%S", localtime(rows[0])),
                         out_time=strftime("%a, %d %b %Y %H:%M:%S", localtime(rows[1])),
-                        elapsed=Decimal((rows[1] - rows[0]) / Decimal(3600)), desc=rows[2]) for rows in cur.fetchall()]
-    # delete all the entries that don't contain the desired tag.
+                        elapsed=Decimal((rows[1] - rows[0]) / Decimal(3600)), desc=rows[2], id=rows[3]) for rows in cur.fetchall()]
+    # assemble entries from the desired month
     month_entries = []
     for entry in all_entries:
         in_time_search = re.search(r'([a-zA-Z]{3})\s(\d{4})', entry['in_time'])
@@ -142,6 +142,30 @@ def post_entry():
         flash('MISSING DATA DISALLOWED - TRY AGAIN.')
         return redirect(url_for('show_all_entries'))
 
+# third view - edit existing entry
+@application.route('/edit/<int:id>', methods=['GET', 'POST'])
+def edit_entry(id):
+    getcontext().prec = 2
+    if not session.get('logged_in'):  # check if the logged_in key is present in the session
+        abort(401)
+    if request.method == 'GET':
+        cur = g.db.execute('select in_time, out_time, desc, id from entries where id='+(str(id)))
+        entry = [dict(in_time_epoch=rows[0], out_time_epoch=rows[1],
+                    in_time=strftime("%a, %d %b %Y %H:%M:%S", localtime(rows[0])),
+                    out_time=strftime("%a, %d %b %Y %H:%M:%S", localtime(rows[1])),
+                    elapsed=Decimal((rows[1] - rows[0]) / Decimal(3600)), desc=rows[2], id=rows[3]) for rows in
+               cur.fetchall()][0]
+        return render_template('edit-entry.html', entry=entry, total_time=entry['elapsed'])
+    if request.method == 'POST':
+        if request.form['inTime'] and request.form['outTime']:
+            g.db.execute('UPDATE entries SET in_time=?, out_time=?, desc=? where id='+(str(id)), (request.form['inTime'], request.form['outTime'], request.form['desc']))
+            g.db.commit()
+            flash('DATABASE TRANSMISSION COMMIT : SUCCESS')
+            return redirect(url_for('show_all_entries'))
+        else:
+            flash('MISSING DATA DISALLOWED - TRY AGAIN.')
+
+            return redirect(url_for('edit_entry', id=id))
 
 @application.route('/login', methods=['GET', 'POST'])
 def login():
@@ -164,6 +188,15 @@ def logout():
     flash('SECURE SESSION TERMINATED')
     return redirect(url_for('show_all_entries'))
 
+@application.route('/delete/<int:id>', methods=['POST'])
+def delete_entry(id):
+    if not session.get('logged_in'):  # check if the logged_in key is present in the session
+        abort(401)
+    if request.method == 'POST':
+        g.db.execute('DELETE FROM entries WHERE id='+str(id))
+        g.db.commit()
+        flash('POST WITH ID: ' + str(id) + ' DELETED')
+    return redirect(url_for('show_all_entries'))
 
 if __name__ == '__main__':
     WSGIServer(application).run(debug=True)
