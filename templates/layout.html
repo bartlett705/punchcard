@@ -6,8 +6,8 @@
 
 <link href='https://fonts.googleapis.com/css?family=VT323|Fira+Mono:400,700' rel='stylesheet' type='text/css'>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-<script src="/static/external/jquery/jquery.js"></script>
-<script src="/static/jquery-ui.js"></script>
+<script src="{{ url_for('static', filename='external/jquery/jquery.js') }}"></script>
+<script src="{{ url_for('static', filename='jquery-ui.js') }}"></script>
 <link href="{{ url_for('static', filename='jquery-ui.css') }}" rel=stylesheet>
 </head>
 
